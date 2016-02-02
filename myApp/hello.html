@@ -12,28 +12,26 @@
     <h1>Ex 1 : Note Application</h1>
     Note :<br/>
 
-    <textarea ng-model="ctrl.messageNote" ng-change="val=false" maxlength="100" ng-bind="{{ctrl.clear()}}">
+    <textarea ng-model="ctrl.messageNote" ng-change="val=false" maxlength="100">
     </textarea>
 
     <br>
     <button type="button" class="btn btn-primary" ng-click="val=true" ng-init="val=true"> Enregistrer </button>
-    <button type="button" class="btn btn-primary" ng-click="clear()"> Effacer </button>
+    <button type="button" class="btn btn-primary" ng-click="ctrl.clear()"> Effacer </button>
 
-
-    <br>
+    <br><br>
     <div class="alert alert-{{ctrl.color()}}">
-    Nombre de caractères restants : {{ctrl.count()}}
+        Nombre de caractères restants : {{ctrl.count()}}
     </div>
 
     <br>
-    <div class="alert alert-success" ng-show="val">
-        Sauvegardée
+    <div ng-hide="ctrl.showinfo">
+        <div class="alert alert-success" ng-show="val">
+            Sauvegardée
+        </div>
+        <div class="alert alert-warning" ng-hide="val">
+            Modifiée
+        </div>
     </div>
-    <div class="alert alert-warning" ng-hide="val">
-        Modifiée
-    </div>
-
-
-
 </body>
 </html>

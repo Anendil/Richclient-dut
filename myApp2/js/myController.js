@@ -1,7 +1,3 @@
-/**
- * Created by alexlbt on 26/01/16.
- */
-
 angular.module("myApp").controller("myController",[function(){
     this.messageNote="";
     this.showinfo = false;
