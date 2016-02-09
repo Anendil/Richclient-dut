@@ -1,37 +1,19 @@
-<html ng-app="myApp">
+<html ng-app="myApp2">
 <head>
-
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
-    <script src="js/app.js"> </script>
+    <script src="js/app.js"></script>
     <script src="js/myController.js"></script>
 </head>
 
 <body ng-controller = "myController as ctrl">
-<h1>Ex 1 : Note Application</h1>
-Note :<br/>
+    <h1>Ex 2 : Services</h1>
+        Liste :<br/><br/>
 
-    <textarea ng-model="ctrl.messageNote" ng-change="val=false" maxlength="100">
-    </textarea>
+        <div ng-repeat="service in ctrl.services">
+            &nbsp&nbsp&nbsp<input type="button" class="{{ctrl.etatButton}}" ng-click="{{ctrl.toggleActive(service)}}" value="{{service.name}} {{service.price}}€">
+        </div>
 
-<br>
-<button type="button" class="btn btn-primary" ng-click="val=true" ng-init="val=true"> Enregistrer </button>
-<button type="button" class="btn btn-primary" ng-click="ctrl.clear()"> Effacer </button>
-
-<br><br>
-<div class="alert alert-{{ctrl.color()}}">
-    Nombre de caractères restants : {{ctrl.count()}}
-</div>
-
-<br>
-<div ng-hide="ctrl.showinfo">
-    <div class="alert alert-success" ng-show="val">
-        Sauvegardée
-    </div>
-    <div class="alert alert-warning" ng-hide="val">
-        Modifiée
-    </div>
-</div>
-</body>
+    </body>
 </html>

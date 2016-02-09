@@ -1,0 +1,32 @@
+<html ng-app="myApp3">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
+        <script src="js/app.js"></script>
+        <script src="js/myController.js"></script>
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+
+    <body ng-controller = "myController as ctrl">
+        <h1 style="text-align: center">Selectionnez vos produit</h1>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5">
+                    <h3>Produit disponibles :</h3>
+                    <select size = "10" ng-options="dispoItem.title for dispoItem in ctrl.dispoItems" ng-model="ctrl.selectedDispoItems"></select>
+                </div>
+                <div class="col-md-2">
+                    <input type="button" value="->"  ng-click="ctrl.addToIncluded()"><br>
+                    <input type="button" value="->|" ng-click="ctrl.addAllToIncluded()"><br>
+                    <input type="button" value="<-"  ng-click="ctrl.removeFromIncluded()"><br>
+                    <input type="button" value="|<-" ng-click="ctrl.RemoveAllFromIncluded()">
+                </div>
+                <div class="col-md-5">
+                    <h3>Produit selectionnés</h3>
+                    <select size = "10" ng-options="includedItem.title for includedItem in ctrl.includedItems" ng-model="ctrl.selectedIncludedItems"></select>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
