@@ -1,0 +1,21 @@
+<html ng-app="myApp4">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
+    <script src="CurrencyApp.js"></script>
+    <script src="CurrencyController.js"></script>
+</head>
+
+<body ng-controller = "CurrencyController as ctrl">
+<h1 style="text-align: center">Convertion de devises</h1>
+    <div align="center">
+        <input type="number" id="valeur" name="valeur" ng-model="ctrl.what">
+        <select ng-options="item.code for item in ctrl.currencies" ng-model="ctrl.from"></select>
+        <input type="button" id="to" name="to" value="to" disabled>
+        <select ng-options="item.code for item in ctrl.currencies" ng-model="ctrl.to"></select>
+        <input type="button" id="convert" name="concert" value="Convertir" ng-click="ctrl.getResult()">
+        <input type="text" id="resultat" name="resultat" ng-model="ctrl.result" disabled>
+    </div>
+</body>
+</html>

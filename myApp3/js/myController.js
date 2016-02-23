@@ -1,5 +1,5 @@
 angular.module("myApp3").controller("myController",[function(){
-
+    var self=this;
     this.dispoItems = [
         {
             url: 'http://tutorialzine.com/2013/07/50-must-have-plugins-for-extending-twitter-bootstrap/',
@@ -40,26 +40,37 @@ angular.module("myApp3").controller("myController",[function(){
 
     this.includedItems=[];
 
-    this.selectedDispoItems;
+    this.selectedDispoItems=[];
 
-    this.selectedIncludedItems;
+    this.selectedIncludedItems=[];
 
     this.step = 1;
 
     this.addToIncluded =  function(){
-        this.includedItems.push(this.selectedDispoItems);
-    }
+        angular.forEach(this.selectedDispoItems,function(item,index){
+            self.includedItems.push(item);
+            self.dispoItems.splice(self.dispoItems.indexOf(item),1);
+        });
+    };
 
     this.addAllToIncluded =  function(){
-
-    }
+        angular.forEach(this.dispoItems,function(item,index){
+            self.includedItems.push(item);
+        });
+        self.dispoItems.splice(0,self.dispoItems.length);
+    };
 
     this.removeFromIncluded =  function(){
-        this.dispoItems.push(this.selectedIncludedItems);
-    }
+        angular.forEach(this.selectedIncludedItems,function(item,index){
+            self.dispoItems.push(item);
+            self.includedItems.splice(self.includedItems.indexOf(item),1);
+        });
+    };
 
     this.RemoveAllFromIncluded =  function(){
-
+        angular.forEach(this.includedItems,function(item,index){
+            self.dispoItems.push(item);
+        });
+        self.includedItems.splice(0,self.includedItems.length);
     }
-
 }]);

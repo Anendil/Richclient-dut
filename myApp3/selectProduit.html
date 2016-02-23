@@ -9,12 +9,12 @@
     </head>
 
     <body ng-controller = "myController as ctrl">
-        <h1 style="text-align: center">Selectionnez vos produit</h1>
+        <h1 style="text-align: center">Selectionnez vos produits</h1>
         <div class="container">
             <div class="row">
                 <div class="col-md-5">
                     <h3>Produit disponibles :</h3>
-                    <select size = "10" ng-options="dispoItem.title for dispoItem in ctrl.dispoItems" ng-model="ctrl.selectedDispoItems"></select>
+                    <select size = "10" ng-options="dispoItem.title for dispoItem in ctrl.dispoItems" ng-model="ctrl.selectedDispoItems" multiple></select>
                 </div>
                 <div class="col-md-2">
                     <input type="button" value="->"  ng-click="ctrl.addToIncluded()"><br>
@@ -24,7 +24,7 @@
                 </div>
                 <div class="col-md-5">
                     <h3>Produit selectionnés</h3>
-                    <select size = "10" ng-options="includedItem.title for includedItem in ctrl.includedItems" ng-model="ctrl.selectedIncludedItems"></select>
+                    <select size = "10" ng-options="includedItem.title for includedItem in ctrl.includedItems" ng-model="ctrl.selectedIncludedItems" multiple></select>
                 </div>
             </div>
         </div>
